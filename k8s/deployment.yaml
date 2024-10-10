@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fibonacci-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fibonacci-api
+  template:
+    metadata:
+      labels:
+        app: fibonacci-api
+    spec:
+      containers:
+      - name: fibonacci-api
+        image: mosesshobowale/fibonacci-api:latest
+        ports:
+        - containerPort: 5001
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5001
+          initialDelaySeconds: 3
+          periodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fibonacci-api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: fibonacci-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5001
