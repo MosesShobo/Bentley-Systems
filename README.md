@@ -8,13 +8,13 @@ This project involves developing a REST API that computes the nth Fibonacci numb
 
 1. Fibonacci API Overview.
 2. Process Workflow.
-  2.1. Writing the Fibonacci API.
-  2.2. Dockerizing the Project.
-  2.3. Kubernetes Deployment.
-  2.4. Setting Up HPA.
-  2.5. CI/CD Pipeline.
-  2.6. Monitoring and Logging.
-  2.7. Scaling Considerations.
+  - 2.1. Writing the Fibonacci API.
+  - 2.2. Dockerizing the Project.
+  - 2.3. Kubernetes Deployment.
+  - 2.4. Setting Up HPA.
+  - 2.5. CI/CD Pipeline.
+  - 2.6. Monitoring and Logging.
+  - 2.7. Scaling Considerations.
 3.	Future Work.
 4.	Operational Considerations.
 5.  Conclusion.
