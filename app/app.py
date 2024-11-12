@@ -27,7 +27,7 @@ def health():
 
 @app.route('/get', methods=['GET'])
 def get_fibonacci():
-    """Endpoint to get the Fibonacci sequence up to a given number 'n'."""
+    """Endpoint to get the nth Fibonacci number."""
     REQUEST_COUNT.labels(endpoint='/get').inc()
     
     # Get the query parameter 'n'
@@ -43,9 +43,9 @@ def get_fibonacci():
     if n < 0:
         return jsonify({"error": "'n' must be a non-negative integer"}), 400
 
-    # Calculate Fibonacci sequence up to n
-    result = [fibonacci(i) for i in range(n + 1)]
-    return jsonify(result), 200
+    # Calculate the nth Fibonacci number
+    result = fibonacci(n)
+    return jsonify({"result": result}), 200
 
 @app.route('/metrics', methods=['GET'])
 def metrics():
